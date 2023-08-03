@@ -1,5 +1,7 @@
 package com.example.awsecs.controller;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.validation.Valid;
 
 import com.example.awsecs.dto.StudentDTO;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
 public class TestController {
     @Autowired
     private StudentService studentService;
@@ -34,6 +37,7 @@ public class TestController {
 
     @GetMapping("/students")
     public ResponseEntity<Object> getAllStudents() {
+        log.info(studentService.toString());
         var result = studentService.getAllStudents();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

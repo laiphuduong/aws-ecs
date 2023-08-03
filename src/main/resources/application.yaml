@@ -1,7 +1,7 @@
 server:
   port: 8085
   servlet:
-    context-path: abc/v1/
+#    context-path: abc/v1/
 
 spring:
   datasource:
@@ -10,7 +10,7 @@ spring:
     password:
   jpa:
     hibernate:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true

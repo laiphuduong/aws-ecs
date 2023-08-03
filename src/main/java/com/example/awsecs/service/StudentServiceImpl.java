@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.awsecs.common.ExceptionMessage;
 import com.example.awsecs.dto.StudentDTO;
 import com.example.awsecs.entity.Student;
 import com.example.awsecs.repository.StudentRepository;
-//import com.example.awsecs.entity.Student;
-//import com.example.awsecs.repository.StudentRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
+@Scope(value = "prototype")
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
@@ -44,7 +44,7 @@ public class StudentServiceImpl implements StudentService {
                 return toStudentDTO(result.get());
             }
         } catch (Exception e) {
-            log.error("unable to find record in database");
+            log.error(ExceptionMessage.NOT_FOUND_IN_DB);
         }
         return null;
     }
