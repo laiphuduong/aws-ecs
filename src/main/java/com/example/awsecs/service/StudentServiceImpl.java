@@ -11,6 +11,7 @@ import com.example.awsecs.dto.StudentDTO;
 import com.example.awsecs.entity.Student;
 import com.example.awsecs.repository.StudentRepository;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
         result.add(randomStudent());
         result.add(randomStudent());
         result.add(randomStudent());
-
+        studentRepository.getStudentAndGroup();
         return result;
     }
 
@@ -41,7 +42,9 @@ public class StudentServiceImpl implements StudentService {
         try {
             var result = studentRepository.getStudentById(studentId);
             if (result.isPresent()) {
-                return toStudentDTO(result.get());
+                ModelMapper modelMapper = new ModelMapper();
+                StudentDTO studentDTO = modelMapper.map(result.get(), StudentDTO.class);
+                return studentDTO;
             }
         } catch (Exception e) {
             log.error(ExceptionMessage.NOT_FOUND_IN_DB);

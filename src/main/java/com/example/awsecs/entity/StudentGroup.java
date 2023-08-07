@@ -25,4 +25,5 @@ public class StudentGroup {
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Grade grade;
+
 }

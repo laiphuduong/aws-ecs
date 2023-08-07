@@ -22,7 +22,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 //    @Query(nativeQuery = true, value = "select * from student where id = :id")
 //    Optional<Student> getStudentById(@Param("id") Integer integer);
 
-    @Query(value = "select s from Student s where s.id = :id and s.name = :name")
+    @Query(value = "select s from Student s where s.id = :id")
     Optional<Student> getStudentById(@Param("id") Integer integer);
 
 

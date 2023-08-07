@@ -14,4 +14,12 @@ import lombok.Setter;
 public class StudentGroupDTO {
     private String studentName;
     private String groupName;
+
+    @Override
+    public String toString() {
+        return "StudentGroupDTO{" +
+                "studentName='" + studentName + '\'' +
+                ", groupName='" + groupName + '\'' +
+                '}';
+    }
 }
