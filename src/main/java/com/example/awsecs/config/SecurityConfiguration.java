@@ -34,12 +34,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
                 .and()
                 .formLogin() // Cho phép người dùng xác thực bằng form login
-//                .loginPage("/login")
+                .loginPage("/login")
 //                .failureUrl("/login.html?error=true")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/index")
                 .permitAll() // Tất cả đều được truy cập vào địa chỉ này
                 .and()
-                .logout() // Cho phép logout
-                .permitAll();
+                .logout()
+                .logoutUrl("/logout").permitAll();
     }
 }
