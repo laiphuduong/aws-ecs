@@ -37,3 +37,10 @@ info:
     java:
       version: @java.version@
 
+
+jwt:
+  secret: duongtest
+  refresh-secret: duongrefreshtoken
+  expiration:
+    jwt: 604800000
+    refresh-jwt: 1209600000
