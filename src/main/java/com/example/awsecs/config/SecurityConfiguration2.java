@@ -21,6 +21,7 @@ public class SecurityConfiguration2 extends WebSecurityConfigurerAdapter {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+    //Bcrypt
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
