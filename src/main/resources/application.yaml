@@ -44,3 +44,8 @@ jwt:
   expiration:
     jwt: 604800000
     refresh-jwt: 1209600000
+
+grpc:
+  server:
+    security:
+      enabled: false

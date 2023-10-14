@@ -18,6 +18,9 @@ btvn:
 tạo 1 service và dùng Rest Template và Feign Client để call api
 
 buổi sau:
-call api via grpc
+communicate between services via grpc
+communicate between services via message broker (kafka, rabbitmq, sqs)
 
+btvn:
+Feign + grpc
 
